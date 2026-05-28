@@ -43,9 +43,7 @@ We call this approach **Model-Free Intelligence** — intelligence that does not
 ## 核心哲学 · Core Philosophy
 
 ```
-"没有真正的人工智能诞生，所谓的人工智能，充其量也只是伪人工智能。"
-"真正AI需要四个核心：语言识别、图形识别、逻辑思考、自然语言理解。"
-                               — 小说《黑客》，2006
+Intelligence is not about the size of a model, but the architecture of the system.
 ```
 
 This insight predates modern LLMs by nearly two decades. The thesis: **you don't need a true AGI to build an intelligent system.** What you need is:
@@ -277,4 +275,4 @@ MIT — do what you want, just give credit.
 
 ---
 
-*"没有模型也能产生智能" — 小说《黑客》，2006*
+*"Intelligence Without a Single Model"*
