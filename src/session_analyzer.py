@@ -10,10 +10,10 @@ Scans Hermes agent session logs to extract:
 Output: structured Experience objects for evolution pipeline.
 """
 
-import re
 import os
-from typing import Any, Dict, List, Tuple
+import re
 from dataclasses import dataclass
+from typing import Any, Dict, List, Tuple
 
 
 @dataclass
@@ -129,8 +129,12 @@ def analyze_session(session_dir: str) -> Dict[str, Any]:
     signals = scan_logs(session_dir)
     experiences = extract_patterns(signals)
 
+    files_scanned = (
+        len([f for f in os.listdir(session_dir) if f.endswith('.json')])
+        if os.path.isdir(session_dir) else 0
+    )
     return {
-        "files_scanned": len([f for f in os.listdir(session_dir) if f.endswith('.json')]) if os.path.isdir(session_dir) else 0,
+        "files_scanned": files_scanned,
         "corrections_found": len(signals),
         "experiences_extracted": len(experiences),
         "top_tags": _top_tags(experiences),

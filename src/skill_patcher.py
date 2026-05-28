@@ -7,7 +7,6 @@ and generates precise patches for the evolution loop.
 
 import re
 
-
 # ─── Skill structure ──────────────────────────────────────────────
 
 SKILL_SECTIONS = {

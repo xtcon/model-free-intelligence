@@ -1,11 +1,10 @@
 """Tests for session_analyzer module."""
 
-import os
 import json
+import os
 import tempfile
-from src.session_analyzer import (
-    CorrectionSignal, scan_logs, extract_patterns, analyze_session
-)
+
+from src.session_analyzer import CorrectionSignal, analyze_session, extract_patterns, scan_logs
 
 
 def test_correction_signal_creation():

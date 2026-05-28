@@ -1,6 +1,7 @@
 """Tests for cross_agent_sync module."""
 
 import tempfile
+
 from src.cross_agent_sync import KnowledgePacket, SyncEngine
 
 

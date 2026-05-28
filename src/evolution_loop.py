@@ -12,9 +12,9 @@ Cost: ~500-1000 tokens per run (≈ $0.0002/day at DeepSeek pricing).
 """
 
 import json
+from dataclasses import dataclass, field
 from datetime import datetime
 from typing import Optional
-from dataclasses import dataclass, field
 
 # ─── Correction signals ────────────────────────────────────────────
 

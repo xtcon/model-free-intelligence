@@ -10,11 +10,11 @@ Design principles:
 - Merkle-style: hash tree for quick diff
 """
 
-import json
 import hashlib
+import json
 import time
-from typing import Any, Dict, List, Optional, Set
 from dataclasses import dataclass, field
+from typing import Any, Dict, List, Optional, Set
 
 
 @dataclass
