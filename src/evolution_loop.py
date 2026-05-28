@@ -11,9 +11,8 @@ native session_search and skill_manage capabilities.
 Cost: ~500-1000 tokens per run (≈ $0.0002/day at DeepSeek pricing).
 """
 
-import re
 import json
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Optional
 from dataclasses import dataclass, field
 
@@ -119,7 +118,6 @@ class SkillAnalyzer:
         """Map a correction signal to the most relevant skill."""
         context = " ".join(signal.context_before + signal.context_after)
         context += " " + signal.user_correction
-        context_lower = context.lower()
 
         best_skill = None
         best_score = 0
@@ -140,7 +138,6 @@ class SkillAnalyzer:
 
     def analyze_recurring(self, signals: list[CorrectionSignal]) -> list[SkillPatch]:
         """Detect recurring patterns → generate patches."""
-        from collections import Counter
 
         patches = []
         context_groups: dict[str, list[CorrectionSignal]] = {}

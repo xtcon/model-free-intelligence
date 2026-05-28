@@ -6,7 +6,6 @@ and generates precise patches for the evolution loop.
 """
 
 import re
-from typing import Optional
 
 
 # ─── Skill structure ──────────────────────────────────────────────
@@ -71,7 +70,6 @@ def generate_pitfall_patch(
         # Find where to insert (after the ## Pitfalls header)
         lines = pitfalls.split("\n")
         # Add after header
-        indent = 2
         new_lines = lines[:1]  # Keep header
         # Check if there's already content after header
         if len(lines) > 1 and lines[1].strip().startswith("-"):
@@ -114,7 +112,7 @@ def generate_step_patch(
         steps_lines = sections["steps"].split("\n")
 
     # Count existing steps
-    existing = [l for l in steps_lines if re.match(r"^\d+\.", l.strip())]
+    existing = [line for line in steps_lines if re.match(r"^\d+\.", line.strip())]
     step_num = len(existing) + 1
 
     if position == -1 or position >= len(steps_lines):
@@ -146,8 +144,8 @@ def diff_skills(old: str, new: str) -> str:
     old_lines = old.split("\n")
     new_lines = new.split("\n")
 
-    added = [l for l in new_lines if l not in old_lines and l.strip()]
-    removed = [l for l in old_lines if l not in new_lines and l.strip()]
+    added = [line for line in new_lines if line not in old_lines and line.strip()]
+    removed = [line for line in old_lines if line not in new_lines and line.strip()]
 
     changes = []
     if added:
