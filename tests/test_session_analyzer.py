@@ -42,8 +42,8 @@ def test_scan_logs_finds_correction():
 def test_scan_logs_finds_chinese_correction():
     with tempfile.TemporaryDirectory() as d:
         log = {"role": "user", "content": "不对，我不是这个意思"}
-        with open(os.path.join(d, "session_2.json"), "w") as f:
-            json.dump(log, f)
+        with open(os.path.join(d, "session_2.json"), "w", encoding="utf-8") as f:
+            json.dump(log, f, ensure_ascii=False)
 
         signals = scan_logs(d)
         assert len(signals) > 0

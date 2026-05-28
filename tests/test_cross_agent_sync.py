@@ -38,7 +38,8 @@ def test_publish_and_pull():
         pkt = KnowledgePacket("max", "test-skill", "content")
         checksum = engine.publish(pkt)
 
-        # Pull should find the packet
+        # Pull should find the packet (clear seen to simulate another agent)
+        engine._seen_checksums.clear()
         pulled = engine.pull_new()
         assert len(pulled) == 1
         assert pulled[0].checksum == checksum
