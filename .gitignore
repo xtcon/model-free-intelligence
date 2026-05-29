@@ -1,5 +1,10 @@
 __pycache__/
 *.pyc
-.coverage
 .pytest_cache/
 .ruff_cache/
+.coverage
+*.egg-info/
+dist/
+build/
+.mfi/
+mfi_history.json
